@@ -1,0 +1,25 @@
+{
+  "name": "dyndns",
+  "version": "0.1.0",
+  "description": "Dynamic DNS implementation for use with Digital Ocean's API",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olefasting/dyndns.git"
+  },
+  "author": "Ole A. Sjo Fasting",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olefasting/dyndns/issues"
+  },
+  "homepage": "https://github.com/olefasting/dyndns#readme",
+  "dependencies": {
+    "digitalocean-api-client": "^1.20240621.0",
+    "dotenv": "^16.4.7",
+    "node-fetch": "^3.3.2"
+  }
+}
