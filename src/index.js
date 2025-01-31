@@ -2,6 +2,11 @@ import 'dotenv/config'
 import fetch from 'node-fetch';
 import { createClient } from 'digitalocean-api-client'
 
+if (process.env.DISABLE_DYNDNS && process.env.DISABLE_DYNDNS == "1") {
+  console.log("dyndns disabled (DISABLE_DYNDNS is set to '1')")
+  process.exit(0)
+}
+
 const client = createClient({
   token: process.env.DOTOKEN,
 })
