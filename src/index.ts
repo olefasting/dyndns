@@ -7,6 +7,8 @@ if (process.env.DISABLE_DYNDNS && process.env.DISABLE_DYNDNS === "1") {
 	process.exit(0);
 }
 
+const domain = process.env.DOMAIN;
+
 const client = createClient({
 	token: process.env.DOTOKEN,
 });
@@ -24,7 +26,7 @@ const records_res = await client.GET("/v2/domains/{domain_name}/records", {
 });
 
 if (records_res.error) {
-	console.error("error when retrieving existing record", error);
+	console.error("error when retrieving existing record: ", records_res.error);
 	process.exit(1);
 } else if (
 	!records_res.data ||
@@ -37,8 +39,9 @@ if (records_res.error) {
 	process.exit(1);
 }
 
+const echo_ip_url = process.env.ECHO_IP_URL || "https://api.ipify.org:";
 const record = records_res.data.domain_records[0];
-const ip_res = await fetch(process.env.ECHO_IP_URL);
+const ip_res = await fetch(echo_ip_url);
 
 const record_id = record.id;
 
@@ -59,8 +62,8 @@ const update_res = await client.PUT(
 		},
 		params: {
 			path: {
-				domain_name: process.env.DOMAIN,
-				record_id: record.id,
+				domain_name: domain,
+				record_id: record_id,
 			},
 		},
 		body: {
