@@ -1,0 +1,11 @@
+[Unit]
+Description=timer for dyndns.service
+
+[Timer]
+OnBootSec=10s
+OnUnitActiveSec=30m
+Unit=dyndns.service
+
+[Install]
+WantedBy=timers.target
+
