@@ -1,6 +1,6 @@
 {
 	"tasks": {
-		"dev": "deno --allow-env --allow-read --allow-net --watch src/main.ts",
+		"dev": "deno --allow-env --allow-read --allow-net --watch src/index.ts",
 		"clean": "rm -rf build/",
 		"build": "./scripts/build.sh",
 		"install": "./scripts/install.sh",

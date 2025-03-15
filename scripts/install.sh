@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-[[ -e build/dyndns ]] || ./scripts/compile.sh
+[[ -e build/dyndns ]] || ./scripts/build.sh
 if [[ ! -e build/dyndns ]]; then
   printf "unable to find binaries after compile" >&2
   exit 1
