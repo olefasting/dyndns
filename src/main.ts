@@ -2,11 +2,6 @@
 
 import { createApiClient } from "dots-wrapper";
 
-if (Deno.env.get("DYNDNS_DISABLE") && Deno.env.get("DYNDNS_DISABLE") === "1") {
-	console.log("dyndns disabled (DYNDNS_DISABLE is set to '1')");
-	Deno.exit(0);
-}
-
 const records: string[] = (Deno.env.get("DYNDNS_RECORDS") || "")
 	.split(",")
 	.filter((v) => v !== "");

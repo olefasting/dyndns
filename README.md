@@ -1,6 +1,28 @@
 # dyndns
 
-Dynamic DNS implementation using Digital Ocean's API
+This is a dynamic dns service that uses Digital Ocean's API to keep a set of
+domain name records pointing to the local system's IP address
+
+## deno tasks
+
+The following tasks are available:
+
+- dev ('deno task dev') starts a dev instance with file watching
+- clean ('deno task clean') deletes 'build/' directory
+- build ('deno task build') builds an executable in 'build/'
+- install ('deno task install') installs all necessary files to the system
+- enable ('deno task enable') enables the timed systemd service
+- enable-now ('deno task enable-now') enables and starts the timed systemd service
+
+## config
+
+The service will add variables set in '/etc/dyndns.env' to the environment if
+they are not already specified there. The following environment variables are
+used:
+
+- 'DYNDNS_DOTOKEN' should contain a valid Digital Ocean API token
+- 'DYNDNS_RECORDS' should contain a string with a comma-separated list of
+domain names to use (FQDN required)
 
 LICENSE MIT
 
