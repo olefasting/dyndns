@@ -7,7 +7,7 @@ domain name records pointing to the local system's IP address
 
 The following tasks are available:
 
-- dev ('deno task dev') starts a dev instance with file watching
+- dev ('deno task dev') starts a dev instance with file watching enabled
 - clean ('deno task clean') deletes 'build/' directory
 - build ('deno task build') builds an executable in 'build/'
 - install ('deno task install') installs all necessary files to the system
@@ -23,6 +23,8 @@ used:
 - 'DYNDNS_DOTOKEN' should contain a valid Digital Ocean API token
 - 'DYNDNS_RECORDS' should contain a string with a comma-separated list of
 domain names to use (FQDN required)
+- 'DYNDNS_ECHO_IP_URL' can be set to the url of a service that responds to
+requests with a client's IP (default 'https://api.ipify.org')
 
 LICENSE MIT
 
